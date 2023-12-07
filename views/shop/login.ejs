@@ -1,0 +1,37 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/forms.css">
+<link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+    <%- include('../includes/navigation.ejs') %>
+    <main>
+     
+        <% if(errMsg.length ){ %>
+            <div class="product-form err-msg"><%= errMsg %></div>
+        <% } %>
+        <form  class="product-form" action="/loginForm" method="post" novalidate>
+
+            <div class="form-control">
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email">
+            </div>
+
+            <div class="form-control">
+
+                <label for="password">password</label>
+                <input type="password" id="password" name="password">
+            </div>
+
+        
+            <div class="form-control">
+                <button type="submit">Login</button>
+
+            </div>
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+     
+        </form>
+    </main>
+
+    <%- include('../includes/end.ejs') %>
